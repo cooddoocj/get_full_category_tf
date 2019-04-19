@@ -174,31 +174,3 @@ function getRemoteFilesize($file_url, $formatSize = true)
 	// return formatted size
 }
 
-function loc($word)
-{
-	$word = preg_replace('/(\W)ria(\W)/i', '$1dia$2', $word);
-	$word = preg_replace('/(\W)sum(\W)/i', '$1xum$2', $word);
-	$word = preg_replace('/(\W)boa(\W)/i', '$1bo$2', $word);
-	$word = preg_replace('/(\W)mu([^A-Za-zàáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹýÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝ])/u', '$1mư$2', $word);
-	$word = preg_replace('/(\W)go(\W)/i', '$1gô$2', $word);
-	$word = preg_replace('/(\W)ah(\W)/i', '$1a$2', $word);
-	$word = preg_replace('/(\W)uh(\W)/i', '$1ư$2', $word);
-	$word = preg_replace(array('/đkm/i', '/dkm/i', '/đcm/i', '/dcm/i', '/cmn/i'), 'con mẹ nó', $word);
-	$word = preg_replace('/([^A-Z])cm(\W)/i', '$1xen-ti-mét$2', $word);
-	$word = preg_replace('/([^A-Z])km(\W)/i', '$1ki-lô-mét$2', $word);
-	$word = preg_replace('/([^A-Z])kg(\W)/i', '$1ki-lô-gam$2', $word);
-	$word = preg_replace('/…/', '...', $word);
-	$word = preg_replace('/\.(?:\s*\.)+/', '...', $word);
-	$word = preg_replace('/,(?:\s*,)+/', ',', $word);
-	$word = str_replace(array('&quot;', '&lsquo;', '&rsquo;', '&ldquo;', '&rdquo;'), '"', $word);
-	$word = str_replace('"..."', '"Lặng!"', $word);
-	$word = preg_replace('/_/', '-', $word);
-	$word = preg_replace('/-+/', '-', $word);
-	$word = preg_replace('/-*o\s*0\s*o-*/', '...', $word);
-	$word = preg_replace('/-*o\s*O\s*o-*/', '...', $word);
-	$word = preg_replace('/~/', ' ', $word);
-	$word = preg_replace('/\*/', '', $word);
-	$word = preg_replace('/ (\.|\?|!|,)/', '$1', $word);
-	$word = preg_replace('/(\d{1,2}),(\d{3})/', '$1$2', $word);
-	return $word;
-}
